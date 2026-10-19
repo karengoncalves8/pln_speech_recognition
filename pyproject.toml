@@ -6,5 +6,6 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "pyaudio>=0.2.14",
+    "spacy>=3.8.16",
     "speechrecognition>=3.17.0",
 ]
