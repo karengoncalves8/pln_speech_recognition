@@ -6,15 +6,15 @@ from services.transcribe import transcribe_from_file
 # Carrega o modelo de Processamento de Linguagem Natural para o português
 nlp = spacy.load("pt_core_news_sm")
 
-# file_path = "C:\\Users\\Karen-Autaza\\Documents\\Personal\\pln\\pt_speech_recognition\\src\\assets\\demonstracao.wav"
-# recognizer, audio = transcribe_from_file(file_path)
-# texto_reconhecido = _recognize_audio(recognizer, audio)
+file_path = "C:\\Users\\karen\\Documents\\FATEC\\pln_speech_recognition\\src\\assets\\demonstracao.wav"
+recognizer, audio = transcribe_from_file(file_path)
+texto_reconhecido = _recognize_audio(recognizer, audio)
 
 # 1. Entrada ideal (Simulando um texto humano bem formatado ou corrigido)
 texto_ideal = "A Rosa foi morar em Curitiba. Você a conhece?"
 
 # 2. Saída bruta do STT (Sem maiúsculas e sem pontuação)
-texto_reconhecido = "a rosa foi morar em curitiba você a conhece"
+# texto_reconhecido = "a rosa foi morar em curitiba você a conhece"
 
 def analisar_texto(rotulo, texto):
     print(f"\n--- {rotulo} ---")
@@ -42,5 +42,6 @@ def analisar_texto(rotulo, texto):
 analisar_texto("CASO A: Texto Ideal (Com Casing e Pontuação)", texto_ideal)
 analisar_texto("CASO B: Saída do STT (Sem Casing e Pontuação)", texto_reconhecido)
 
-# O problema: A palavra "rosa" em minúsculas deixa de ser tratada como o nome próprio de uma pessoa e passa a ser interpretada pelo modelo como o substantivo comum "rosa" (a flor).
+# O problema: A palavra "rosa" em minúsculas deixa de ser tratada como o nome próprio de uma pessoa 
+# e passa a ser interpretada pelo modelo como o substantivo comum "rosa" (a flor).
 # Como consequência, o modelo perde a entidade PER completamente!
